@@ -17,13 +17,6 @@ namespace System.Net.Http
     internal partial class HttpConnection
     {
         private readonly static HttpRequestMessage s_request = new HttpRequestMessage();
-        //private readonly Socket _socket;
-        //private readonly NetworkStream _networkStream;
-    
-//        internal NetworkStream Stream => _stream is SslStream ? ((AuthenticatedStream)_stream).InnerStream : (NetworkStream)_stream;
-
-//        public IPEndPoint LocalEndPoint => (IPEndPoint)Stream.Socket.LocalEndPoint!;
-        //public IPEndPoint RemoteEndPoint => (IPEndPoint)Stream.Socket.RemoteEndPoint!;
 
         public HttpConnection(HttpConnectionPool pool, Stream stream) : this(pool, stream, null)
         {
@@ -249,7 +242,6 @@ namespace System.Net.Http
 
             protected override void Dispose(bool disposing)
             {
-                Console.WriteLine("Dispose on PublicHttpContentStream was called {0}", disposing);
                 if (disposing && !disposed)
                 {
                     disposed = true;
