@@ -131,8 +131,10 @@ namespace System.Net
             }
             else
             {
-                base.Write(buffer);
-                //Socket.Send(buffer);
+                // Does not work because of magic in NetwrokStream 
+                // that makes array and calls the overload above.
+                //base.Write(buffer);
+                Socket.Send(buffer);
             }
         }
 

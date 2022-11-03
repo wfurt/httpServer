@@ -24,7 +24,6 @@ namespace System.Net.Http
             {
                 if (_connection != null)
                 {
-                    Console.WriteLine("Disposed ConetntStream!!!!");
                     _connection.Dispose();
                     _connection = null;
                 }

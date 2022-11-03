@@ -30,7 +30,6 @@ namespace System.Net.Http
                     return;
                 }
 
-                Console.WriteLine("Writing chunke of {0} bytes", buffer.Length);
                 // Write chunk length in hex followed by \r\n
                 connection.WriteHexInt32Async(buffer.Length, async: false).GetAwaiter().GetResult();
                 connection.WriteTwoBytesAsync((byte)'\r', (byte)'\n', async: false).GetAwaiter().GetResult();
@@ -83,7 +82,6 @@ namespace System.Net.Http
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex);
                     throw;
                 }
             }
